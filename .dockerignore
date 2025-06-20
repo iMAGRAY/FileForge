@@ -1,0 +1,115 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.npm
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+.pytest_cache/
+
+# Build artifacts
+*.exe
+*.obj
+*.o
+*.a
+*.lib
+*.dll
+*.dylib
+build/
+dist/
+*.vcxproj.user
+*.vcxproj.filters
+
+# Embeddings and cache
+embeddings/
+*.faiss
+*.bin
+*.index
+*.cache
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.backup.*
+temp/
+logs/
+backups/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.editorconfig
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# GitHub
+.github/
+
+# Test files and development
+test_*
+*_test.*
+huge_test_file.*
+mega_test_*
+dev_*
+debug_*
+
+# Docker
+Dockerfile*
+.dockerignore
+docker-compose*.yml
+
+# CI/CD
+.travis.yml
+.circleci/
+.gitlab-ci.yml
+
+# Documentation (exclude from runtime, but keep for reference)
+# Uncomment next lines if you want to exclude docs from Docker image
+# docs/
+# examples/
+# *.md
+
+# Local configuration
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+config.local.json
+mcp_*.json
+
+# Coverage reports
+coverage/
+.coverage
+.nyc_output
+
+# Dependency directories (already handled in Dockerfile)
+.pnp
+.pnp.js
