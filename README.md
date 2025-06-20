@@ -9,20 +9,7 @@
 
 ## ⚡ Quick Setup
 
-**One-click installation for popular editors:**
-
-<div align="center">
-
-[![🔥 One-Click Install Hub](https://img.shields.io/badge/🔥_One--Click-Install_Hub-purple?style=for-the-badge)](https://htmlpreview.github.io/?https://github.com/iMAGRAY/FileForge/blob/main/scripts/index.html)
-
-[![Add to Claude Desktop](https://img.shields.io/badge/🤖_Add_to-Claude_Desktop-orange?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K)](https://htmlpreview.github.io/?https://github.com/iMAGRAY/FileForge/blob/main/scripts/install-claude.html)
-[![Add to Cursor](https://img.shields.io/badge/💫_Add_to-Cursor-blue?style=for-the-badge&logo=visual-studio-code)](https://htmlpreview.github.io/?https://github.com/iMAGRAY/FileForge/blob/main/scripts/install-cursor.html)
-[![Add to VS Code](https://img.shields.io/badge/📝_Add_to-VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code)](https://htmlpreview.github.io/?https://github.com/iMAGRAY/FileForge/blob/main/scripts/install-vscode.html)
-[![Add to Continue.dev](https://img.shields.io/badge/🔄_Add_to-Continue.dev-green?style=for-the-badge)](https://htmlpreview.github.io/?https://github.com/iMAGRAY/FileForge/blob/main/scripts/install-continue.html)
-
-</div>
-
-**Or use directly from Git (no download needed):**
+**Use directly from Git (no download needed):**
 
 ```json
 {
@@ -39,13 +26,7 @@ Copy this into your MCP client configuration and you're ready to go!
 
 **Want a specific version?** Use: `"github:iMAGRAY/FileForge#v3.2.0"`
 
-📋 **See [MCP_CONFIGURATIONS.md](MCP_CONFIGURATIONS.md) for detailed configurations and troubleshooting!**
-
-> **Note:** The installation buttons work immediately via HTMLPreview. For even better experience, enable GitHub Pages:
-> 1. Go to your repo **Settings** → **Pages** 
-> 2. Set **Source** to "Deploy from a branch"
-> 3. Select **Branch**: `main` and **Folder**: `/ (root)`
-> 4. Your pages will be available at `https://yourusername.github.io/FileForge/`
+📋 **See [MCP_CONFIGURATIONS.md](MCP_CONFIGURATIONS.md) for configurations for Claude Desktop, Cursor, Continue.dev and more!**
 
 ## ✨ Key Features
 
