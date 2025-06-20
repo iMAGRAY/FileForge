@@ -41,6 +41,12 @@ Copy this into your MCP client configuration and you're ready to go!
 
 📋 **See [MCP_CONFIGURATIONS.md](MCP_CONFIGURATIONS.md) for detailed configurations and troubleshooting!**
 
+> **Note:** The installation buttons work immediately via HTMLPreview. For even better experience, enable GitHub Pages:
+> 1. Go to your repo **Settings** → **Pages** 
+> 2. Set **Source** to "Deploy from a branch"
+> 3. Select **Branch**: `main` and **Folder**: `/ (root)`
+> 4. Your pages will be available at `https://yourusername.github.io/FileForge/`
+
 ## ✨ Key Features
 
 - 🔧 **17 useful tools** for code management
