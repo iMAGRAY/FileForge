@@ -1317,29 +1317,29 @@ class FileForge {
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [{
     name: "fileforge",
-    description: "🔥 FILEFORGE v3.2 - Кузница файлов и кода с революционной производительностью! Превращает сырой код в отточенные решения. МОЩЬ КУЗНИ: 📊 Объединенная performance+history статистика, 🗑️ Автоматическая очистка backup'ов, 🔧 Расширенная обработка файлов (9 операций), 🆕 Валидация синтаксиса, сжатие контента, assembler бенчмарки. ИНСТРУМЕНТЫ МАСТЕРА: chunked reading, atomic operations, structure detection, regex find&replace, file diff, batch operations, multi-file processing, auto backup/rollback, error recovery, embedding management. Защита от ошибок ИИ через множественные уровни безопасности кузни.",
+    description: "🔥 FILEFORGE v3.2 - The ultimate file and code forge with revolutionary performance! Transforms raw code into polished solutions. FORGE POWER: 📊 Combined performance+history statistics, 🗑️ Automatic backup cleanup, 🔧 Extended file processing (9 operations), 🆕 Syntax validation, content compression, assembler benchmarks. MASTER TOOLS: chunked reading, atomic operations, structure detection, regex find&replace, file diff, batch operations, multi-file processing, auto backup/rollback, error recovery, embedding management. Protection from AI errors through multiple security levels.",
     inputSchema: {
       type: "object",
       properties: {
         action: { 
           type: "string", 
           enum: ["create_file", "read_file_chunked", "replace_lines", "delete_lines", "insert_lines", "find_code_structures", "find_and_replace", "generate_diff", "batch_operations", "process_multiple_files", "rollback_operation", "get_performance_stats", "process_file_complete", "cleanup_file_embedding", "smart_create_embedding", "get_embedding_cache_info", "has_embedding"],
-          description: "Действие для выполнения"
+          description: "Action to perform"
         },
-        file_path: { type: "string", description: "Путь к файлу" },
-        start_line: { type: "integer", description: "Начальная строка (для чтения/замены/удаления)" },
-        end_line: { type: "integer", description: "Конечная строка (для чтения/замены/удаления)" },
-        new_content: { type: "string", description: "Новый контент для замены (строка или массив строк)" },
-        chunk_size: { type: "integer", description: "Размер chunk'а для чтения (по умолчанию 50 строк)", default: 50 },
+        file_path: { type: "string", description: "Path to file" },
+        start_line: { type: "integer", description: "Start line (for reading/replacing/deleting)" },
+        end_line: { type: "integer", description: "End line (for reading/replacing/deleting)" },
+        new_content: { type: "string", description: "New content for replacement (string or array of strings)" },
+        chunk_size: { type: "integer", description: "Chunk size for reading (default 50 lines)", default: 50 },
         structure_type: { 
           type: "string", 
           enum: ["all", "function", "class", "method", "arrow"],
-          description: "Тип структур кода для поиска", 
+          description: "Type of code structures to search for", 
           default: "all" 
         },
         operations: { 
           type: "array", 
-          description: "Массив операций для batch_operations. Каждая операция: {type: 'copy|move|delete|create_directory', source?, destination?, target?, path?}",
+          description: "Array of operations for batch_operations. Each operation: {type: 'copy|move|delete|create_directory', source?, destination?, target?, path?}",
           items: {
             type: "object",
             properties: {
@@ -1351,23 +1351,23 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
             }
           }
         },
-        operation_id: { type: "string", description: "ID операции для rollback" },
-        create_backup: { type: "boolean", description: "Создавать backup перед изменениями", default: true },
-        search_pattern: { type: "string", description: "Паттерн для поиска (find_and_replace)" },
-        replacement: { type: "string", description: "Текст для замены (find_and_replace)" },
-        is_regex: { type: "boolean", description: "Использовать regex для поиска", default: false },
-        file_path_2: { type: "string", description: "Второй файл для сравнения (generate_diff)" },
-        file_paths: { type: "array", items: { type: "string" }, description: "Массив путей к файлам (process_multiple_files)" },
-        operation_type: { type: "string", enum: ["read_chunks", "find_structures", "backup", "create_embeddings", "find_similar", "process_complete", "validate_syntax", "compress_content", "assembler_benchmark"], description: "Тип операции для process_multiple_files" },
-        operation_params: { type: "object", description: "Дополнительные параметры для операций (chunkSize, startLine, endLine, useAssembler, structureType, forceRecreate, topK, compressionLevel, forceCreateEmbedding)" },
-        force_create_embedding: { type: "boolean", description: "Принудительно создавать эмбеддинги (по умолчанию false для эффективности)", default: false }
+        operation_id: { type: "string", description: "Operation ID for rollback" },
+        create_backup: { type: "boolean", description: "Create backup before changes", default: true },
+        search_pattern: { type: "string", description: "Search pattern (find_and_replace)" },
+        replacement: { type: "string", description: "Replacement text (find_and_replace)" },
+        is_regex: { type: "boolean", description: "Use regex for search", default: false },
+        file_path_2: { type: "string", description: "Second file for comparison (generate_diff)" },
+        file_paths: { type: "array", items: { type: "string" }, description: "Array of file paths (process_multiple_files)" },
+        operation_type: { type: "string", enum: ["read_chunks", "find_structures", "backup", "create_embeddings", "find_similar", "process_complete", "validate_syntax", "compress_content", "assembler_benchmark"], description: "Operation type for process_multiple_files" },
+        operation_params: { type: "object", description: "Additional parameters for operations (chunkSize, startLine, endLine, useAssembler, structureType, forceRecreate, topK, compressionLevel, forceCreateEmbedding)" },
+        force_create_embedding: { type: "boolean", description: "Force create embeddings (default false for efficiency)", default: false }
       },
       required: ["action"]
     }
   }]
 }));
 
-// Инициализация FileForge
+// Initialize FileForge
 const fileForge = new FileForge();
 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
@@ -1401,7 +1401,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       switch (action) {
         case "create_file":
           if (!file_path) {
-            throw new Error("file_path обязателен");
+            throw new Error("file_path is required");
           }
           result = await fileForge.createNewFile(
             file_path, 
@@ -1413,70 +1413,70 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         case "read_file_chunked":
           if (!file_path) {
-            throw new Error("file_path обязателен");
+            throw new Error("file_path is required");
           }
           result = await fileForge.readFileChunked(file_path, start_line, end_line, chunk_size, force_create_embedding);
           break;
 
         case "replace_lines":
           if (!file_path || start_line === undefined || end_line === undefined || new_content === undefined) {
-            throw new Error("file_path, start_line, end_line и new_content обязательны");
+            throw new Error("file_path, start_line, end_line and new_content are required");
           }
           result = await fileForge.replaceLines(file_path, start_line, end_line, new_content, create_backup, force_create_embedding);
           break;
 
         case "delete_lines":
           if (!file_path || start_line === undefined || end_line === undefined) {
-            throw new Error("file_path, start_line и end_line обязательны");
+            throw new Error("file_path, start_line and end_line are required");
           }
           result = await fileForge.deleteLines(file_path, start_line, end_line, create_backup);
           break;
 
         case "insert_lines":
           if (!file_path || start_line === undefined || new_content === undefined) {
-            throw new Error("file_path, start_line и new_content обязательны");
+            throw new Error("file_path, start_line and new_content are required");
           }
           result = await fileForge.insertLines(file_path, start_line, new_content, create_backup);
           break;
 
         case "find_code_structures":
           if (!file_path) {
-            throw new Error("file_path обязателен");
+            throw new Error("file_path is required");
           }
           result = await fileForge.findCodeStructures(file_path, structure_type);
           break;
 
         case "find_and_replace":
           if (!file_path || !search_pattern || replacement === undefined) {
-            throw new Error("file_path, search_pattern и replacement обязательны");
+            throw new Error("file_path, search_pattern and replacement are required");
           }
           result = await fileForge.findAndReplace(file_path, search_pattern, replacement, is_regex, create_backup);
           break;
 
         case "generate_diff":
           if (!file_path || !file_path_2) {
-            throw new Error("file_path и file_path_2 обязательны");
+            throw new Error("file_path and file_path_2 are required");
           }
           result = await fileForge.generateDiff(file_path, file_path_2);
           break;
 
         case "batch_operations":
           if (!operations || !Array.isArray(operations)) {
-            throw new Error("operations (массив) обязателен");
+            throw new Error("operations (array) is required");
           }
           result = await fileForge.batchOperations(operations);
           break;
 
         case "process_multiple_files":
           if (!file_paths || !Array.isArray(file_paths) || !operation_type) {
-            throw new Error("file_paths (массив) и operation_type обязательны");
+            throw new Error("file_paths (array) and operation_type are required");
           }
           result = await fileForge.processMultipleFilesEnhanced(file_paths, operation_type, operation_params);
           break;
 
         case "rollback_operation":
           if (!operation_id) {
-            throw new Error("operation_id обязателен");
+            throw new Error("operation_id is required");
           }
           result = await fileForge.rollbackOperation(operation_id);
           break;
@@ -1487,21 +1487,21 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         case "process_file_complete":
           if (!file_path) {
-            throw new Error("file_path обязателен");
+            throw new Error("file_path is required");
           }
           result = await fileForge.processFileComplete(file_path);
           break;
 
         case "cleanup_file_embedding":
           if (!file_path) {
-            throw new Error("file_path обязателен");
+            throw new Error("file_path is required");
           }
           result = await fileForge.removeFileEmbedding(file_path);
           break;
 
         case "smart_create_embedding":
           if (!file_path) {
-            throw new Error("file_path обязателен");
+            throw new Error("file_path is required");
           }
           result = await fileForge.smartCreateEmbedding(file_path, operation_params.forceRecreate || false);
           break;
@@ -1512,7 +1512,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         case "has_embedding":
           if (!file_path) {
-            throw new Error("file_path обязателен");
+            throw new Error("file_path is required");
           }
           const hasEmbedding = await fileForge.hasEmbedding(file_path);
           result = {
@@ -1524,7 +1524,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           break;
 
         default:
-          throw new Error(`Неизвестное действие: ${action}`);
+          throw new Error(`Unknown action: ${action}`);
       }
 
       return {
@@ -1561,7 +1561,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("FileForge MCP Server запущен");
+  console.error("FileForge MCP Server started");
   process.stdin.resume();
 }
 
