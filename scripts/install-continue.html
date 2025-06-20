@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔄 Add FileForge to Continue.dev</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .method-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            border: 2px solid #22c55e;
+            border-radius: 25px;
+            background: transparent;
+            color: #22c55e;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .tab.active {
+            background: #22c55e;
+            color: white;
+        }
+        
+        .method {
+            display: none;
+            text-align: left;
+        }
+        
+        .method.active {
+            display: block;
+        }
+        
+        .steps {
+            margin: 30px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .step {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: #22c55e;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+        
+        .config-box {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+        
+        .copy-btn {
+            background: #22c55e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+        }
+        
+        .copy-btn.copied {
+            background: #059669;
+        }
+        
+        .open-btn {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .open-btn:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #155724;
+        }
+        
+        .tip {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #15803d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🔄</div>
+        <h1>Add FileForge to Continue.dev</h1>
+        <p class="subtitle">Supercharge Continue.dev with FileForge capabilities!</p>
+        
+        <div class="method-tabs">
+            <button class="tab active" onclick="showMethod('config')">Config.json</button>
+            <button class="tab" onclick="showMethod('vscode')">VS Code Extension</button>
+            <button class="tab" onclick="showMethod('jetbrains')">JetBrains Plugin</button>
+        </div>
+        
+        <!-- Method 1: Config.json -->
+        <div class="method active" id="config">
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Open Continue configuration</strong><br>
+                        Find your <code>config.json</code> file (usually in <code>~/.continue/</code>)
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Add MCP server configuration</strong><br>
+                        Add FileForge to the <code>mcpServers</code> section
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Restart Continue</strong><br>
+                        Reload your editor to activate FileForge
+                    </div>
+                </div>
+            </div>
+            
+            <div class="config-box" id="continue-config">
+{
+  "mcpServers": {
+    "fileforge": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "github:iMAGRAY/FileForge",
+        "node",
+        "src/fileforge.cjs"
+      ],
+      "env": {
+        "NODE_PATH": "./node_modules"
+      }
+    }
+  }
+}
+            </div>
+            
+            <button class="copy-btn" onclick="copyConfig('continue-config')">📋 Copy Configuration</button>
+        </div>
+        
+        <!-- Method 2: VS Code Extension -->
+        <div class="method" id="vscode">
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Install Continue VS Code extension</strong><br>
+                        Search for "Continue" in VS Code Extensions marketplace
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Configure Continue settings</strong><br>
+                        Open Continue settings and add FileForge MCP server
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Use in Continue chat</strong><br>
+                        FileForge tools will be available in Continue conversations
+                    </div>
+                </div>
+            </div>
+            
+            <div class="config-box" id="vscode-continue-config">
+// In VS Code settings.json:
+{
+  "continue.mcpServers": {
+    "fileforge": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "github:iMAGRAY/FileForge", 
+        "node",
+        "src/fileforge.cjs"
+      ]
+    }
+  }
+}
+            </div>
+            
+            <button class="copy-btn" onclick="copyConfig('vscode-continue-config')">📋 Copy VS Code Config</button>
+        </div>
+        
+        <!-- Method 3: JetBrains Plugin -->
+        <div class="method" id="jetbrains">
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Install Continue JetBrains plugin</strong><br>
+                        Go to Plugins → Marketplace → Search "Continue"
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Configure plugin settings</strong><br>
+                        Open Continue plugin settings and add MCP configuration
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Restart IDE</strong><br>
+                        Restart your JetBrains IDE to load FileForge
+                    </div>
+                </div>
+            </div>
+            
+            <div class="config-box" id="jetbrains-config">
+// In Continue plugin configuration:
+{
+  "mcpServers": {
+    "fileforge": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "github:iMAGRAY/FileForge",
+        "node", 
+        "src/fileforge.cjs"
+      ],
+      "cwd": "${workspaceFolder}"
+    }
+  }
+}
+            </div>
+            
+            <button class="copy-btn" onclick="copyConfig('jetbrains-config')">📋 Copy JetBrains Config</button>
+        </div>
+        
+        <a href="https://continue.dev/docs/setup/configuration" class="open-btn" target="_blank">📚 Continue.dev Docs</a>
+        
+        <div class="tip">
+            <strong>💡 Pro Tip:</strong> FileForge integrates seamlessly with Continue.dev's chat interface. 
+            Just mention file operations and Continue will use FileForge automatically!
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ Requirements:</strong> Node.js 18+, Continue.dev extension/plugin installed.
+        </div>
+        
+        <div class="success" style="display: none;" id="success">
+            <strong>✅ Configuration copied!</strong> Add it to your Continue.dev configuration.
+        </div>
+        
+        <p style="margin-top: 30px; color: #666;">
+            Need help? Check our <a href="../MCP_CONFIGURATIONS.md" style="color: #22c55e;">detailed guide</a> 
+            or <a href="https://github.com/iMAGRAY/FileForge/issues" style="color: #22c55e;">report an issue</a>
+        </p>
+    </div>
+
+    <script>
+        function showMethod(method) {
+            // Hide all methods
+            document.querySelectorAll('.method').forEach(m => m.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            
+            // Show selected method
+            document.getElementById(method).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        async function copyConfig(configId) {
+            const config = document.getElementById(configId).textContent.trim();
+            try {
+                await navigator.clipboard.writeText(config);
+                const btn = event.target;
+                const success = document.getElementById('success');
+                
+                btn.textContent = '✅ Copied!';
+                btn.classList.add('copied');
+                success.style.display = 'block';
+                
+                setTimeout(() => {
+                    const originalText = btn.getAttribute('data-original') || '📋 Copy Configuration';
+                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
+                }, 3000);
+            } catch (err) {
+                alert('Failed to copy. Please copy manually.');
+            }
+        }
+        
+        // Store original button texts
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.setAttribute('data-original', btn.textContent);
+            });
+        });
+    </script>
+</body>
+</html> 

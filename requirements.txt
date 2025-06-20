@@ -41,6 +41,6 @@ numba==0.57.1
 pytest==7.4.0
 pytest-cov==4.1.0
 
-# CUDA поддержка (опционально, раскомментировать при наличии GPU)
+# CUDA support (optional, uncomment if GPU available)
 # torch==2.0.1+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 # faiss-gpu==1.7.4 

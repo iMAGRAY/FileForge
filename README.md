@@ -7,6 +7,40 @@
 
 🔥 **FileForge** - The ultimate file and code forge! Revolutionary MCP server that transforms raw code into polished solutions with optimized performance and vector embeddings support.
 
+## ⚡ Quick Setup
+
+**One-click installation for popular editors:**
+
+<div align="center">
+
+[![🔥 One-Click Install Hub](https://img.shields.io/badge/🔥_One--Click-Install_Hub-purple?style=for-the-badge)](https://imaGRAY.github.io/FileForge/)
+
+[![Add to Claude Desktop](https://img.shields.io/badge/🤖_Add_to-Claude_Desktop-orange?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K)](https://imaGRAY.github.io/FileForge/scripts/install-claude.html)
+[![Add to Cursor](https://img.shields.io/badge/💫_Add_to-Cursor-blue?style=for-the-badge&logo=visual-studio-code)](https://imaGRAY.github.io/FileForge/scripts/install-cursor.html)
+[![Add to VS Code](https://img.shields.io/badge/📝_Add_to-VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code)](https://imaGRAY.github.io/FileForge/scripts/install-vscode.html)
+[![Add to Continue.dev](https://img.shields.io/badge/🔄_Add_to-Continue.dev-green?style=for-the-badge)](https://imaGRAY.github.io/FileForge/scripts/install-continue.html)
+
+</div>
+
+**Or use directly from Git (no download needed):**
+
+```json
+{
+  "mcpServers": {
+    "fileforge": {
+      "command": "npx",
+      "args": ["--yes", "github:iMAGRAY/FileForge", "node", "src/fileforge.cjs"]
+    }
+  }
+}
+```
+
+Copy this into your MCP client configuration and you're ready to go!
+
+**Want a specific version?** Use: `"github:iMAGRAY/FileForge#v3.2.0"`
+
+📋 **See [MCP_CONFIGURATIONS.md](MCP_CONFIGURATIONS.md) for detailed configurations and troubleshooting!**
+
 ## ✨ Key Features
 
 - 🔧 **17 useful tools** for code management
@@ -55,7 +89,40 @@ FileForge automatically works with **relative paths from the project root**:
 - Relative paths: `./README.md`, `docs/guide.md` 
 - Absolute paths: `C:/full/path/to/file.txt`
 
-### 1. Install Dependencies
+## 🚀 Installation Options
+
+### Option 1: Direct from Git (Recommended)
+
+No need to clone! Use FileForge directly from GitHub:
+
+```json
+{
+  "mcpServers": {
+    "fileforge": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "github:iMAGRAY/FileForge",
+        "node",
+        "src/fileforge.cjs"
+      ],
+      "env": {
+        "NODE_PATH": "./node_modules"
+      }
+    }
+  }
+}
+```
+
+### Option 2: Local Installation
+
+#### 1. Clone Repository
+```bash
+git clone https://github.com/iMAGRAY/FileForge.git
+cd FileForge
+```
+
+#### 2. Install Dependencies
 ```bash
 # Install Node.js dependencies
 npm install
@@ -64,7 +131,7 @@ npm install
 pip install -r requirements.txt
 ```
 
-### 2. Build C++ Components
+#### 3. Build C++ Components (Optional)
 ```bash
 # Linux/macOS
 make
@@ -73,8 +140,7 @@ make
 build_vs.bat
 ```
 
-### 3. Configure MCP
-Add to your MCP configuration:
+#### 4. Configure MCP
 ```json
 {
   "mcpServers": {
@@ -86,7 +152,15 @@ Add to your MCP configuration:
 }
 ```
 
-### 4. Start Using
+### Option 3: Docker (Coming Soon)
+
+```bash
+docker run -it --rm -v $(pwd):/workspace fileforge/mcp-server
+```
+
+## 🎯 Usage Examples
+
+### Basic Operations
 ```javascript
 // Basic file operations
 await mcp.call("create_file", {
@@ -123,6 +197,7 @@ FileForge consists of three main components:
 
 ## 📚 Documentation
 
+- [MCP Configurations](MCP_CONFIGURATIONS.md) - Ready-to-use configurations for different MCP clients
 - [Installation Guide](INSTALL.md) - Detailed setup instructions
 - [Developer Guide](docs/DEVELOPER_GUIDE.md) - Development and customization
 - [API Examples](examples/) - Usage examples and tutorials

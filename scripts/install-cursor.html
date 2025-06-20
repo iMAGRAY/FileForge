@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💫 Add FileForge to Cursor IDE</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Supercharge Cursor IDE with FileForge - AI-first code editor with advanced file operations">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 700px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .method-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            border: 2px solid #007ACC;
+            border-radius: 25px;
+            background: transparent;
+            color: #007ACC;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            background: #007ACC;
+            color: white;
+        }
+        
+        .method {
+            display: none;
+            text-align: left;
+        }
+        
+        .method.active {
+            display: block;
+        }
+        
+        .steps {
+            margin: 30px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .step {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: #007ACC;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+        
+        .config-box {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+        
+        .copy-btn {
+            background: #007ACC;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #005a9e;
+            transform: translateY(-2px);
+        }
+        
+        .copy-btn.copied {
+            background: #28a745;
+        }
+        
+        .open-btn {
+            background: #6f42c1;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .open-btn:hover {
+            background: #5a2d91;
+            transform: translateY(-2px);
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #155724;
+        }
+        
+        .tip {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">💫</div>
+        <h1>Add FileForge to Cursor IDE</h1>
+        <p class="subtitle">Supercharge your Cursor experience with FileForge!</p>
+        
+        <div class="method-tabs">
+            <button class="tab active" onclick="showMethod('settings')">MCP Settings</button>
+            <button class="tab" onclick="showMethod('rules')">Cursor Rules</button>
+        </div>
+        
+        <!-- Method 1: MCP Settings -->
+        <div class="method active" id="settings">
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Open Cursor Settings</strong><br>
+                        Go to Cursor Settings → Features → Model Context Protocol
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Add MCP Server</strong><br>
+                        Click "Add Server" and paste the configuration below
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Restart Cursor</strong><br>
+                        FileForge will be automatically installed and ready to use!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="config-box" id="cursor-config">
+{
+  "name": "fileforge",
+  "command": "npx",
+  "args": [
+    "--yes", 
+    "github:iMAGRAY/FileForge", 
+    "node", 
+    "src/fileforge.cjs"
+  ],
+  "env": {
+    "NODE_PATH": "./node_modules"
+  }
+}
+            </div>
+            
+            <button class="copy-btn" onclick="copyConfig('cursor-config')">📋 Copy MCP Configuration</button>
+        </div>
+        
+        <!-- Method 2: Cursor Rules -->
+        <div class="method" id="rules">
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Create .cursorrules file</strong><br>
+                        In your project root, create or edit <code>.cursorrules</code>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Add FileForge configuration</strong><br>
+                        Paste the configuration below into your .cursorrules file
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Reload Cursor</strong><br>
+                        Reload the window (Cmd/Ctrl + R) to apply changes
+                    </div>
+                </div>
+            </div>
+            
+            <div class="config-box" id="rules-config">
+# FileForge MCP Integration
+You have access to FileForge - a powerful file and code management tool.
+
+## Available FileForge capabilities:
+- create_file: Create new files with automatic directory creation
+- read_file_chunked: Read large files in chunks (50-1000 lines)
+- replace_lines: Replace specific line ranges with backup
+- find_code_structures: Detect functions, classes, methods
+- smart_create_embedding: Vector embeddings for semantic search
+- batch_operations: Multiple file operations at once
+- get_performance_stats: Detailed operation statistics
+
+## MCP Configuration:
+```json
+{
+  "mcp": {
+    "servers": {
+      "fileforge": {
+        "command": "npx",
+        "args": ["--yes", "github:iMAGRAY/FileForge", "node", "src/fileforge.cjs"],
+        "cwd": "${workspaceFolder}"
+      }
+    }
+  }
+}
+```
+
+Use FileForge for all file operations, code analysis, and project management tasks.
+            </div>
+            
+            <button class="copy-btn" onclick="copyConfig('rules-config')">📋 Copy Cursor Rules</button>
+        </div>
+        
+        <a href="#" class="open-btn" onclick="openCursor()">🚀 Open Cursor Settings</a>
+        
+        <div class="tip">
+            <strong>💡 Pro Tip:</strong> Use the MCP Settings method for global access, or Cursor Rules for project-specific setup.
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ Requirements:</strong> Node.js 18+ installed. First run may take longer due to installation.
+        </div>
+        
+        <div class="success" style="display: none;" id="success">
+            <strong>✅ Configuration copied!</strong> Follow the steps above to complete setup.
+        </div>
+        
+        <p style="margin-top: 30px; color: #666;">
+            Need help? Check our <a href="../MCP_CONFIGURATIONS.md" style="color: #007ACC;">detailed guide</a> 
+            or <a href="https://github.com/iMAGRAY/FileForge/issues" style="color: #007ACC;">report an issue</a>
+        </p>
+    </div>
+
+    <script>
+        function showMethod(method) {
+            // Hide all methods
+            document.querySelectorAll('.method').forEach(m => m.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            
+            // Show selected method
+            document.getElementById(method).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        async function copyConfig(configId) {
+            const config = document.getElementById(configId).textContent.trim();
+            try {
+                await navigator.clipboard.writeText(config);
+                const btn = event.target;
+                const success = document.getElementById('success');
+                
+                btn.textContent = '✅ Copied!';
+                btn.classList.add('copied');
+                success.style.display = 'block';
+                
+                setTimeout(() => {
+                    btn.textContent = btn.textContent.includes('MCP') ? '📋 Copy MCP Configuration' : '📋 Copy Cursor Rules';
+                    btn.classList.remove('copied');
+                }, 3000);
+            } catch (err) {
+                alert('Failed to copy. Please copy manually.');
+            }
+        }
+        
+        function openCursor() {
+            alert('To open Cursor settings:\n\n1. Press Cmd/Ctrl + , (comma)\n2. Go to Features → Model Context Protocol\n3. Click "Add Server"\n4. Paste the copied configuration\n\nOr use Command Palette: Cmd/Ctrl + Shift + P → "MCP"');
+        }
+    </script>
+</body>
+</html> 

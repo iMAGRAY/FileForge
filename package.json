@@ -31,12 +31,17 @@
   },
   "scripts": {
     "start": "node src/fileforge.cjs",
+    "mcp": "node src/fileforge.cjs",
     "test": "jest --passWithNoTests",
     "build": "make",
     "build:win": "build_vs.bat",
     "benchmark": "python src/benchmark_assembler.py",
     "lint": "eslint src/**/*.{js,cjs} || exit 0",
-    "docs": "jsdoc src/**/*.js -d docs/api || exit 0"
+    "docs": "jsdoc src/**/*.js -d docs/api || exit 0",
+    "postinstall": "echo 'FileForge installed successfully! Use: npm run mcp'"
+  },
+  "bin": {
+    "fileforge": "./src/fileforge.cjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1"
