@@ -88,7 +88,7 @@ ENV NODE_ENV=production \
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD node -e "require('./src/ultra_code_manager_enhanced.cjs')" || exit 1
+    CMD node -e "require('./src/fileforge.cjs')" || exit 1
 
 # Switch to non-root user
 USER ultracm
@@ -97,7 +97,7 @@ USER ultracm
 EXPOSE 3000
 
 # Default command
-CMD ["node", "src/ultra_code_manager_enhanced.cjs"]
+CMD ["node", "src/fileforge.cjs"]
 
 # ================================
 # Metadata Labels

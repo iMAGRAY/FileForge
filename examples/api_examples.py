@@ -17,7 +17,7 @@ class FileForgeAPI:
     Python wrapper for FileForge MCP server
     """
     
-    def __init__(self, server_path: str = "./src/ultra_code_manager_enhanced.cjs"):
+    def __init__(self, server_path: str = "./src/fileforge.cjs"):
         """Initialize the API wrapper"""
         self.server_path = server_path
         self.timeout = 30
@@ -131,7 +131,7 @@ def example_batch_operations():
         operation_type="backup",
         file_paths=[
             "./examples/demo_file.py",
-            "./src/ultra_code_manager_enhanced.cjs"
+            "./src/fileforge.cjs"
         ],
         operation_params={"backup_dir": "./examples/backups"}
     )

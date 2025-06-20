@@ -5,7 +5,7 @@
 sentence-transformers==2.2.2
 faiss-cpu==1.7.4
 numpy==1.24.3
-torch==2.0.1
+torch>=2.0.1,<2.1.0
 transformers==4.33.2
 
 # Дополнительные утилиты
@@ -22,7 +22,8 @@ psutil==5.9.5
 # Опциональные зависимости для расширенного функционала
 # Для работы с различными форматами файлов
 chardet==5.1.0
-python-magic==0.4.27
+python-magic==0.4.27; platform_system != "Windows"
+python-magic-bin==0.4.14; platform_system == "Windows"
 
 # Для веб-интерфейса (опционально)
 flask==2.3.3
@@ -35,6 +36,10 @@ plotly==5.15.0
 
 # Ускорение вычислений
 numba==0.57.1
+
+# Testing dependencies
+pytest==7.4.0
+pytest-cov==4.1.0
 
 # CUDA поддержка (опционально, раскомментировать при наличии GPU)
 # torch==2.0.1+cu118 -f https://download.pytorch.org/whl/torch_stable.html
