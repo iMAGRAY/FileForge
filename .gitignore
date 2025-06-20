@@ -116,3 +116,38 @@ dmypy.json
 
 # VS Code workspace files
 *.code-workspace
+
+# GitHub Pages files (if accidentally generated)
+.nojekyll
+_site/
+
+# NPM and package manager files
+.pnpm-debug.log*
+.pnpm/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# macOS specific
+.AppleDouble
+.LSOverride
+
+# Windows specific
+desktop.ini
+$RECYCLE.BIN/
+
+# Linux specific
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Project specific temporary files
+scripts/ (if empty)
+temp_files/
+scratch/
