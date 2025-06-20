@@ -5,6 +5,21 @@ All notable changes to FileForge will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.1] - 2025-01-20
+
+### Fixed
+- 🔧 **CRITICAL**: Fixed Makefile cross-platform compatibility issues
+- 🐛 **CI/CD**: Resolved build failures on Linux/Ubuntu in GitHub Actions
+- 🛠️ **BUILD**: Fixed Windows batch commands vs Linux shell commands syntax error
+- ⚡ **DOCKER**: Fixed Docker build process with proper cross-platform Makefile
+- 📝 **TRANSLATION**: Complete English translation of all Russian text in Makefile and build scripts
+- 🎯 **PATH**: Updated source file path from `file_assembler.cpp` to `src/file_assembler.cpp`
+
+### Changed
+- 🔄 Makefile now properly detects OS and uses appropriate commands (Windows vs Linux)
+- 📦 Updated `build_vs.bat` to use correct source file path and English messaging
+- 🌐 Cross-platform compatibility improved for CI/CD environments
+
 ## [3.2.0] - 2025-01-20
 
 ### Added
