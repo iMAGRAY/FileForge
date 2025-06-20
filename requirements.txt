@@ -1,40 +1,40 @@
-# Requirements для Ultra Code Manager Enhanced - Embedding System
-# Все зависимости с фиксированными версиями для стабильности
+# Requirements for Ultra Code Manager Enhanced - Embedding System
+# All dependencies with fixed versions for stability
 
-# Основные библиотеки для эмбеддингов
+# Core libraries for embeddings
 sentence-transformers==2.2.2
 faiss-cpu==1.7.4
 numpy==1.24.3
 torch>=2.0.1,<2.1.0
 transformers==4.33.2
 
-# Дополнительные утилиты
+# Additional utilities
 scikit-learn==1.3.0
 pandas==2.0.3
 tqdm==4.66.1
 
-# JSON обработка (если понадобится дополнительно)
+# JSON processing (if additional functionality is needed)
 ujson==5.8.0
 
-# Логирование и мониторинг
+# Logging and monitoring
 psutil==5.9.5
 
-# Опциональные зависимости для расширенного функционала
-# Для работы с различными форматами файлов
+# Optional dependencies for extended functionality
+# For working with various file formats
 chardet==5.1.0
 python-magic==0.4.27; platform_system != "Windows"
 python-magic-bin==0.4.14; platform_system == "Windows"
 
-# Для веб-интерфейса (опционально)
+# For web interface (optional)
 flask==2.3.3
 flask-cors==4.0.0
 
-# Для визуализации эмбеддингов (опционально)
+# For embedding visualization (optional)
 matplotlib==3.7.2
 seaborn==0.12.2
 plotly==5.15.0
 
-# Ускорение вычислений
+# Computation acceleration
 numba==0.57.1
 
 # Testing dependencies

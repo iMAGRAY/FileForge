@@ -1,7 +1,7 @@
 {
   "name": "fileforge",
   "version": "3.2.0",
-  "description": "🔥 FileForge - Кузница файлов и кода! Революционный MCP сервер с оптимизированной производительностью и векторными эмбеддингами",
+  "description": "🔥 FileForge - The ultimate file and code forge! Revolutionary MCP server with optimized performance and vector embeddings",
   "main": "src/fileforge.cjs",
   "keywords": [
     "fileforge",

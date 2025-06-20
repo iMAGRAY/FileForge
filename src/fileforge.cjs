@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// FILEFORGE - Кузница файлов и кода с интеграцией Assembler и Embeddings
+// FILEFORGE - The ultimate file and code forge with Assembler and Embeddings integration
 const { Server } = require("@modelcontextprotocol/sdk/server/index.js");
 const { StdioServerTransport } = require("@modelcontextprotocol/sdk/server/stdio.js");
 const { CallToolRequestSchema, ListToolsRequestSchema } = require("@modelcontextprotocol/sdk/types.js");
